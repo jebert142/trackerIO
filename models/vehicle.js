@@ -4,13 +4,17 @@ const path = require('path')
 const vehiclePhotoBasePath = 'uploads/vehiclePhotos'
 
 const vehicleSchema = new mongoose.Schema({
-    manufacturer: {
+        manufacturer: {
         type: String,
         required: true
     },
     model: {
         type: String,
         required: true
+    },
+    vehicleNickname: {
+        type: String,
+        required: true,
     },
     year: {
         type: Date,

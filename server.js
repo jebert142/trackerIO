@@ -15,7 +15,7 @@ app.set('views', __dirname + '/views') //server views
 app.set('layout', 'layouts/layout')
 app.use(expressLayouts)
 app.use(express.static('public')) //public views
-app.use(bodyParser.urlencoded({ limit: '10 mb', extended: false}))
+app.use(bodyParser.urlencoded({ limit: '10mb', extended: false}))
 
 //database setup
 const mongoose = require('mongoose')

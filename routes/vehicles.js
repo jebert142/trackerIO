@@ -3,10 +3,14 @@ const router = express.Router()
 const Vehicle = require('../models/vehicle')
 
 
-// Get vehicles route
+// Get all vehicles route
 router.get('/', async(req, res) => {
-    
-    res.render('vehicles/index')
+    try{
+        const vehicles = await Vehicle.find({})
+        res.render('vehicles/index', {vehicles: vehicles})
+    } catch {
+        res.redirect('/')
+    }
 })
 
 // Create vehicles route
@@ -17,24 +21,24 @@ router.get('/create', async(req, res) => {
 
 
 // Create vehicles route
-router.get('/', (req, res) => {
+router.post('/', async (req, res) => {
     const vehicle = new Vehicle({
         manufacturer: req.body.manufacturer,
         model: req.body.model,
+        vehicleNickname: req.body.vehicleNickname,
         year: req.body.year
     })
-    vehicle.save((err, newvehicle) => {
-        if (err){
-            res.render('vehicles/create', {
-                manufacturer: manufacturer,
-                model: req.body.model,
-                year: req.body.year,
-                errorMessage: "Error Creating Vehicle"
-            })
-        } else {
-            res.redirect('vehicles')
-        }
-    })
+    try {
+        const newVehicle = await vehicle.save()
+        // res.redirect('vehicles/${newVehicle.id}')
+        res.redirect('vehicles')
+    } catch {
+        res.render('vehicles/create', {
+            vehicle: vehicle,
+            errorMessage: "Error Creating Vehicle"
+        })
+    }
+    
 })
 
 module.exports = router

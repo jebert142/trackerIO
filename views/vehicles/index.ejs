@@ -1,3 +1,13 @@
-All Vehicles
+<h2>My Vehicles</h2>
+
+<form action="/vehicles" method="GET">
+    <label>Vehicle</label>
+    <input type="text" name="vehicleNickname">
+    <button type="submit">Search</button>
+</form>
+<br>
+<% vehicles.forEach(vehicle => { %>
+    <div><%= vehicle.nickname %></div>
+<% }) %>
 
 <a href="/vehicles/create">Add Vehicle</a>
