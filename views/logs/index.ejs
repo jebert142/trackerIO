@@ -1,0 +1,14 @@
+<h2>Maintenance Logs</h2>
+
+<form action="/logs" method="GET">
+    <label>Log</label>
+    <input type="text" name="title">
+    <button type="submit">Search</button>
+</form>
+
+<% log.forEach(log => { %>
+    <div><%= log.title %></div>
+<% }) %>
+
+<br>
+<a href="/logs/newLog">Enter New Maintenance Log</a>

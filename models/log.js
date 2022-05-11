@@ -24,6 +24,9 @@ const logSchema = new mongoose.Schema({
     // },
     description: {
         type: Date,
-        required: true
+        required: false
     }
 })
+
+//   Export log model
+module.exports = mongoose.model('Log', logSchema)
