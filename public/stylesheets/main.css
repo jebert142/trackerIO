@@ -8,8 +8,24 @@
 
 body {
     height: 125vh;
-    margin-top: 36px;
-    padding: 30px;
+    margin: 0px;
+    margin-top: 40px;
+}
+
+.full-width-banner {
+    width: 100%;
+    background-size: 100%;
+    background-position: left;
+    background-repeat: no-repeat;
+    height: 350px;
+}
+
+.text-banner {
+    height: auto;
+    display: flex;
+    color: white;
+    text-shadow: 1px 1px black;
+
 }
 
 header img {
@@ -27,7 +43,7 @@ header img {
 }
 
 header {
-    background-color: #CFCFCF;
+    background-color: #c4c2c2;
     position: fixed;
     top: 0;
     left: 0;
@@ -36,7 +52,6 @@ header {
     display: flex;
     align-items: center;
     font-size: 16px;
-    box-shadow: 0 0 5px 0 black;
 }
 
 header * {
