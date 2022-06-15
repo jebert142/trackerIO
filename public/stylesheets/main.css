@@ -3,28 +3,67 @@
 :root {
     font-size: 14px;
     font-family: 'Roboto';
-    background-color: #f3f3f3;
+    background-color: #FFFFFF;
 }
 
 body {
     height: 125vh;
     margin: 0px;
     margin-top: 40px;
+    text-align: left;
 }
 
-.full-width-banner {
+.sidenav {
+    height: 100%; /* Full-height: remove this if you want "auto" height */
+    width: 160px; /* Set the width of the sidebar */
+    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    background-color: #F6F4F4; /* Black */
+    overflow-x: hidden; /* Disable horizontal scroll */
+    margin-top: 40px;
+    padding: 1em 0em;
+}
+
+.sidenav a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 16px;
+    color: #818181;
+    display: block;
+}
+  
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}
+
+.main-content {
+    margin-left: 170px;
+    padding: 10px 10px;
+    
+    width: 80%;
+    line-height: 2rem;
+}
+
+/* .full-width-banner {
     width: 100%;
     background-size: 100%;
     background-position: left;
     background-repeat: no-repeat;
     height: 350px;
-}
+} */
 
 .text-banner {
     height: auto;
     display: flex;
-    color: white;
-    text-shadow: 1px 1px black;
+    /* color: white;
+    text-shadow: 1px 1px black; */
 
 }
 
@@ -32,6 +71,7 @@ header img {
     height: 30px;
     padding-left: 2px;
     padding-right: 2px;
+    margin-left: .5em;
 }
 
 .title {
@@ -69,4 +109,14 @@ header li a {
 
 button {
     color: #006837;
+}
+
+.error-message {
+    background-color: red;
+    font-size: 14px;
+    font-family: 'Roboto';
+    color: white;
+    border-radius: 15px;
+    padding: 5px;
+    max-width: 300px;
 }
