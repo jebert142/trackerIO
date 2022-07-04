@@ -15,11 +15,12 @@ body {
 
 .sidenav {
     height: 100%; /* Full-height: remove this if you want "auto" height */
-    width: 160px; /* Set the width of the sidebar */
+    width: 180px; /* Set the width of the sidebar */
     position: fixed; /* Fixed Sidebar (stay in place on scroll) */
     z-index: 1; /* Stay on top */
     top: 0; /* Stay at the top */
     left: 0;
+    text-align: center;
     background-color: #F6F4F4; /* Black */
     overflow-x: hidden; /* Disable horizontal scroll */
     margin-top: 40px;
@@ -35,7 +36,7 @@ body {
 }
   
 .sidenav a:hover {
-    color: #f1f1f1;
+    color: #006837;
 }
 
 @media screen and (max-height: 450px) {
@@ -43,8 +44,29 @@ body {
     .sidenav a {font-size: 18px;}
 }
 
+.legal {
+    position: fixed;
+    bottom: 0px;
+    width: 160px;
+    padding: 10px;
+    font-size: 12px;
+    color: rgba(46, 46, 46, 0.9);
+    text-align: center;
+}
+
+.legal a {
+    font-size: 12px;
+    color: rgba(0, 0, 255, 0.582);
+    padding-left: 0px;
+}
+
+.legal a:hover {
+    color: rgba(0, 0, 255, 0.877);
+    
+}
+
 .main-content {
-    margin-left: 170px;
+    margin-left: 190px;
     padding: 10px 10px;
     
     width: 80%;
