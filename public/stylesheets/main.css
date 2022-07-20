@@ -40,8 +40,8 @@ body {
 }
 
 @media screen and (max-height: 450px) {
-    .sidenav {padding-top: 15px;}
-    .sidenav a {font-size: 18px;}
+    .sidenav {padding-top: 14px;}
+    .sidenav a {font-size: 16px;}
 }
 
 .legal {
@@ -66,11 +66,11 @@ body {
 }
 
 .main-content {
-    margin-left: 190px;
-    padding: 10px 10px;
-    
-    width: 80%;
-    line-height: 2rem;
+    margin-left: 180px;
+    margin-right: 60px;
+    padding-left: 2em;
+    line-height: 1.5rem;
+    max-width: 1200px;
 }
 
 /* .full-width-banner {
@@ -99,7 +99,6 @@ header img {
 .title {
     color: black;
     text-decoration: none;
-    font-style: bold;
     font-size: 20px;
     font-weight: bold;
 }
@@ -111,13 +110,24 @@ header {
     left: 0;
     right: 0;
     height: 40px;
-    display: flex;
     align-items: center;
     font-size: 16px;
 }
 
-header * {
-    display: inline;
+.nav-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.nav-item-right {
+    /* display: flex; */
+    justify-content: right;
+}
+
+.nav-item-left {
+    /* display: flex; */
+    justify-content: left;
 }
 
 header li {
@@ -141,4 +151,15 @@ button {
     border-radius: 15px;
     padding: 5px;
     max-width: 300px;
+}
+
+/* .seperator {
+    height: 100px;
+    background-color: #0abd69;
+} */
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
 }
