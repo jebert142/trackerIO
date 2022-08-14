@@ -1,8 +1,9 @@
 @import 'shared/fonts.css';
 
 :root {
-    font-size: 14px;
     font-family: 'Roboto';
+    font-size: 15px;
+    line-height: 2rem;
     background-color: #FFFFFF;
 }
 
@@ -69,7 +70,6 @@ body {
     margin-left: 180px;
     margin-right: 60px;
     padding-left: 2em;
-    line-height: 1.5rem;
     max-width: 1200px;
 }
 
@@ -93,7 +93,9 @@ header img {
     height: 30px;
     padding-left: 2px;
     padding-right: 2px;
+    margin-top: 10px;
     margin-left: .5em;
+    margin-right: .5em;
 }
 
 .title {
@@ -123,6 +125,8 @@ header {
 .nav-item-right {
     /* display: flex; */
     justify-content: right;
+    margin-left: auto;
+    margin-right: 1em;
 }
 
 .nav-item-left {
@@ -153,13 +157,55 @@ button {
     max-width: 300px;
 }
 
-/* .seperator {
+.seperator {
     height: 100px;
     background-color: #0abd69;
-} */
+}
 
 .grid-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 20px;
+}
+
+.child-1 {
+    background-color: #36a571;
+    padding: 10px;
+    padding-bottom: 20px;
+}
+
+.child-2 {
+    background-color: #88b39e;
+    padding: 10px;
+    padding-bottom: 20px;
+}
+
+.profile {
+ height: 35px;
+ width: 35px;
+ background-color: rgb(245, 241, 241);
+ border-radius: 50%;
+ /* display: inline-block; */
+}
+
+/* styling for Vehicle page */
+
+.vehicle-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 350px);
+    grid-gap: 20px;
+    margin-top: 2rem;
+    
+}
+
+.vehicle-child {
+    background-color: #ddd9d9;
+    padding: 10px;
+    padding-bottom: 20px;
+}
+
+.vehicleName {
+    font-size: 23px;
+    font-weight: bold;
+    color: #36a571;
 }

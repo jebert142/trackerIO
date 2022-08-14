@@ -3,7 +3,7 @@ const router = express.Router()
 const Vehicle = require('../models/vehicle')
 
 
-// Get all vehicles route
+// Render Vehicles main page and Get all vehicles route
 router.get('/', async(req, res) => {
     try{
         const vehicles = await Vehicle.find({})
@@ -13,7 +13,7 @@ router.get('/', async(req, res) => {
     }
 })
 
-// Create vehicles route
+// Render 'create vehicles' page
 router.get('/create', async(req, res) => {
     
     res.render('vehicles/create', {vehicle: new Vehicle()})
@@ -25,8 +25,9 @@ router.post('/', async (req, res) => {
     const vehicle = new Vehicle({
         manufacturer: req.body.manufacturer,
         model: req.body.model,
-        vehicleNickname: req.body.vehicleNickname,
-        year: req.body.year
+        year: req.body.year,
+        mileage: req.body.mileage,
+        vehicleNickname: req.body.vehicleNickname
     })
     try {
         const newVehicle = await vehicle.save()

@@ -1,19 +1,24 @@
 <div>
     <label>Manufacturer</label>
-    <input type="text" name="manufacturer" value="<%= vehicle.manufacturer %>">
+    <input type="text" name="manufacturer" value="<%= vehicle.manufacturer %>"  placeholder="Mazda" required>
 </div>
 <div>
     <label>Model</label>
-    <input type="text" name="model" value="<%= vehicle.model %>">
-</div>
-<div>
-    <label>Vehicle Nickname</label>
-    <input type="text" name="vehicleNickname" value="<%= vehicle.vehicleNickname %>">
+    <input type="text" name="model" value="<%= vehicle.model %>"  placeholder="MX5" required>
 </div>
 <div>
     <label>Year</label>
-    <input type="date" name="year"  value="<%= vehicle.name %>">
+    <input type="number" name="year"  value="<%= vehicle.year %>" min="1900" max="2099" step="1" placeholder="2017" required>
 </div>
+<div>
+    <label>Mileage</label>
+    <input type="number" name="mileage" value="<%= vehicle.mileage %>" placeholder="55,238" required>
+</div>
+<div>
+    <label>Vehicle Nickname</label>
+    <input type="text" name="vehicleNickname" value="<%= vehicle.vehicleNickname %>" required>
+</div>
+
 
 
 <!-- <label>Upload Vehicle Photo</label>

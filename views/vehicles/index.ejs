@@ -1,13 +1,23 @@
-<h1>My Vehicles</h1>
-
+<div class="text-banner">
+    <h1>My Vehicles</h1>
+</div>
 <form action="/vehicles" method="GET">
     <label>Vehicle</label>
     <input type="text" name="vehicleNickname">
     <button type="submit">Search</button>
 </form>
-<br>
-<% vehicles.forEach(vehicle => { %>
-    <div><%= vehicle.nickname %></div>
-<% }) %>
-
 <a href="/vehicles/create">Add Vehicle</a>
+
+<br>
+<div class="vehicle-container">
+<% vehicles.forEach(vehicle => { %>
+    <div class="vehicle-child">
+        <p class="vehicleName"><%= vehicle.vehicleNickname %></p>
+        <p>Manufacturer: <%= vehicle.manufacturer %></p>
+        <p>Model: <%= vehicle.model %></p>
+        <p>Model Year: <%= vehicle.year %></p>
+        <p>Mileage: <%= vehicle.mileage %></p>
+        <p></p>
+    </div>
+<% }) %>
+</div>
