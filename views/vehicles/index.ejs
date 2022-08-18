@@ -12,12 +12,13 @@
 <div class="vehicle-container">
 <% vehicles.forEach(vehicle => { %>
     <div class="vehicle-child">
-        <p class="vehicleName"><%= vehicle.vehicleNickname %></p>
+        <a href="/vehicles/<%= vehicle.id %>"><p class="vehicleName"><%= vehicle.vehicleNickname %></p></a>
         <p>Manufacturer: <%= vehicle.manufacturer %></p>
         <p>Model: <%= vehicle.model %></p>
         <p>Model Year: <%= vehicle.year %></p>
         <p>Mileage: <%= vehicle.mileage %></p>
-        <p></p>
+        <a href="/vehicles/<%= vehicle.id %>/edit">Edit</a>
+        <%- include('../partials/deleteForm', { url: `/vehicles/${vehicle.id}` }) %>
     </div>
 <% }) %>
 </div>
