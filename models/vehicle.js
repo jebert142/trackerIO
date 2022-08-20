@@ -3,6 +3,8 @@ const path = require('path')
 
 const vehiclePhotoBasePath = 'uploads/vehiclePhotos'
 
+
+
 const vehicleSchema = new mongoose.Schema({
     manufacturer: {
     type: String,
@@ -28,7 +30,11 @@ const vehicleSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         required: false,
         ref: 'Vehicle'
-    }
+    },
+    items: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Log'
+    }] // reference Log model to store many logs inside the Vehicle model
 })
 
 vehicleSchema.virtual('vehiclePhotoPath').get(function() {

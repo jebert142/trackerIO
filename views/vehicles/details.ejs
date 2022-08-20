@@ -1,16 +1,16 @@
 <a href="/vehicles">Back to my vehicles</a>
 
 <div class="text-banner">
-    <h1>Edit Vehicle</h1>
+    <h1>Viewing Vehicle, <%= vehicle.vehicleNickname %></h1>
 </div>
 
 <div>
-    <form action="/vehicles/<%= vehicle.id %>/edit" method="PUT">
+    <form action="/vehicles/<%= vehicle.id %>?_method=PUT" method="POST">
         <div>
             <%- include('_form_fields') %>
         </div>
         <br>
-        <a href="/vehicles">Cancel</a>
+        <a href="/vehicles/<%= vehicle.id %>">Cancel</a>
         <button type="submit">Save Changes</button>  
     </form>
 </div>

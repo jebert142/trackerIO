@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const Log = require('../models/log')
+const Vehicle = require('../models/vehicle')
 
 // Get all logs route
 router.get('/', async(req, res) => {
@@ -36,9 +37,12 @@ router.post('/', async (req, res) => {
         res.render('logs/newLog', {
             log: log,
             errorMessage: "Error Creating Log"
+            
         })
     }
     
 })
+
+
 
 module.exports = router

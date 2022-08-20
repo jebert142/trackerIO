@@ -3,7 +3,7 @@
 </div>
 <form action="/vehicles" method="GET">
     <label>Vehicle</label>
-    <input type="text" name="vehicleNickname">
+    <input type="text" name="vehicleNickname" placeholder="enter text">
     <button type="submit">Search</button>
 </form>
 <a href="/vehicles/create">Add Vehicle</a>
@@ -12,13 +12,15 @@
 <div class="vehicle-container">
 <% vehicles.forEach(vehicle => { %>
     <div class="vehicle-child">
-        <a href="/vehicles/<%= vehicle.id %>"><p class="vehicleName"><%= vehicle.vehicleNickname %></p></a>
+        <a href="/vehicles/<%= vehicle.id %>/edit"><p class="vehicleName"><%= vehicle.vehicleNickname %></p></a>
         <p>Manufacturer: <%= vehicle.manufacturer %></p>
         <p>Model: <%= vehicle.model %></p>
         <p>Model Year: <%= vehicle.year %></p>
         <p>Mileage: <%= vehicle.mileage %></p>
         <a href="/vehicles/<%= vehicle.id %>/edit">Edit</a>
         <%- include('../partials/deleteForm', { url: `/vehicles/${vehicle.id}` }) %>
+        <a href="/vehicles/<%= vehicle.id %>/logs">View History</a>
+        <a href="/vehicles/<%= vehicle.id %>/newLog">Enter New Log</a>
     </div>
 <% }) %>
 </div>
