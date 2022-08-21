@@ -5,7 +5,7 @@
 </div>
 
 <div>
-    <form action="/vehicles/<%= vehicle.id %>/edit" method="PUT">
+    <form action="/vehicles/<%= vehicle.id %>?_method=PUT" method="POST">
         <div>
             <%- include('_form_fields') %>
         </div>
