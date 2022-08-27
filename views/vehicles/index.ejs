@@ -18,7 +18,7 @@
         <p>Model Year: <%= vehicle.year %></p>
         <p>Mileage: <%= vehicle.mileage %></p>
         <a href="/vehicles/<%= vehicle.id %>/edit">Edit</a>
-        <%- include('../partials/deleteForm', { url: `/vehicles/${vehicle.id}` }) %>
+        <a href="/vehicles/<%= vehicle.id %>/">Delete</a>
         <a href="/vehicles/<%= vehicle.id %>/logs">View History</a>
         <a href="/vehicles/<%= vehicle.id %>/newLog">Enter New Log</a>
     </div>

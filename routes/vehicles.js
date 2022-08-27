@@ -7,18 +7,18 @@ const Vehicle = require('../models/vehicle')
 // @param search query
 router.get('/', async(req, res) => {
     const vehicleQuery = req.query 
-    console.log(req.query.search)
+    // console.log(req.query.search)
 
     try{       
         const vehicles = await Vehicle.find({})// if no request data, render all vehicles
         if(!vehicleQuery){
             res.render('vehicles/index', {vehicles: vehicles})
-            console.log("if")
+            // console.log("if")
         } else {  //else, take query and render vehicles against search params
             query = Vehicle.findById(vehicleQuery)
-            console.log(query)
+            // console.log(query)
             res.render('vehicles/index', {vehicles: vehicles})
-            console.log("else")
+            // console.log("else")
         }
     } catch(e) {
         const vehicles = await Vehicle.find({})
@@ -71,7 +71,7 @@ router.get('/:id/edit', async (req, res) => {
         // console.log("vehicles" , vehicle)
         if (!vehicle || typeof vehicle == 'undefined') { // I *THINK* you might be able to just say !vehicle nowadays... Im old
             // TODO: show error page (not found) or res.status(404).send()
-            console.error("WARNING: Vehicle requested but not found with ID", req)
+            // console.error("WARNING: Vehicle requested but not found with ID", req)
             res.status(404).send()
             return
         } else {
@@ -84,23 +84,52 @@ router.get('/:id/edit', async (req, res) => {
 
 // Vehicle edit save routing
 // @param Vehicle.ID
-router.put('/vehicles/:id/edit', async (req, res) => {    
-    const vehicle_id = req
+router.put('/vehicles/:id/save', async (req, res) => {    
+    let vehicleToEdit
     try {
-        await vehicle_id.save()
-        res.redirect('vehicles/')
-        // res.redirect('vehicles')
+        vehicleToEdit = await Vehicle.findById(req.params.id)
+        await vehicleToEdit.save()
+        res.redirect('/vehicles/edit', {vehicle: vehicleToEdit})
+        console.log("tried to save") //remove
     } catch (e) {
-        res.render('vehicles/edit', {
-            vehicle: vehicle,
-            errorMessage: "Error Saving Changes"
-        })
+        if (vehicleToEdit == null){
+            res.render('/vehicles', {
+                vehicle: vehicleToEdit,
+                errorMessage: "Vehicle Not Found",
+            })
+            console.log("made it to the if on catch") //remove
+        } else {
+            res.render('/vehicles/edit', {
+            vehicle: vehicleToEdit,
+            errorMessage: "Error Saving Changes",
+            })
+            console.log("made it to the else on catch") //remove
+        }
+        
     }
 })
 
 
 //  Delete vehicle
-router.delete('/:id', async (req, res) => {
+router.delete('vehicles/:id/delete', async (req, res) => {
+    let vehicle 
+    try{
+        vehicle = await Vehicle.findById(req.params.id)
+    }catch(e) {
+        if(vehicle == null){
+            res.render('/vehicles', {
+                vehicle: vehicle,
+                errorMessage: "Vehicle Not Found",
+            })
+        }else{
+            res.render('/vehicles', {
+                vehicle: vehicle,
+                errorMessage: "Error trying to delete the selected vehicle",
+                })
+        }
+    }
+    
+    
     res.send('Delete vehicle ' + req.params.id)
 })
 
